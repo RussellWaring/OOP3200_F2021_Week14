@@ -13,37 +13,52 @@ public class MainController
     private Integer two;
 
     @FXML
-    private Label welcomeLabel;
+    private Label titleLabel;
 
     @FXML
-    private Button clickMeButton;
+    private Label firstNumberLabel;
 
     @FXML
-    private TextField nameTextField;
+    private Label secondNumberLabel;
 
     @FXML
-    private Label nameLabel;
+    private Label resultLabel;
 
     @FXML
-    protected void OnClickMeButton_Clicked() {
-        welcomeLabel.setText("Welcome to Week 14!");
+    private Button computeButton;
+
+    @FXML
+    private TextField firstNumberTextField;
+
+    @FXML
+    private TextField secondNumberTextField;
+
+    @FXML
+    private TextField resultTextField;
+
+    @FXML
+    protected void OnComputeButton_Clicked()
+    {
+        // When the compute button is clicked it will read the values from the first and second textFields
+        // Passes into the String, get the result
+        var firstString = firstNumberTextField.getText();
+        var secondString = secondNumberTextField.getText();
+        var result = AddString(firstString, secondString);
+
+        firstNumberTextField.clear();
+        secondNumberTextField.clear();
+
+        resultTextField.setText("" + result);
     }
 
     @FXML
-    protected void OnNameTextField_Submitted()
+    protected void OnClearButton_Clicked()
     {
-        // 2 things - text field to clear,
-        //nameTextField.setText("");
-        var text = nameTextField.getText();
-        //welcomeLabel.setText(nameTextField.getText());
-        welcomeLabel.setText(text);
-        nameTextField.clear();
+        firstNumberTextField.clear();
+        secondNumberTextField.clear();
+        resultTextField.clear();
 
-        String oneString = "1";
-        String twoString ="2";
-        var result = AddString(oneString, twoString);
-        System.out.println("Result: " + result);
-
+        firstNumberTextField.requestFocus(); // sets focus back to first input textfield
     }
 
     // Utility functions

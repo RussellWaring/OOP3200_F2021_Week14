@@ -31,6 +31,8 @@ public class Main extends Application {
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet()); // add stylesheets into scene!!
         stage.setTitle("OOP3200 - F2021 - Week 14");
         stage.setScene(scene);
+        stage.setResizable(false); // disables window resizing
+        stage.setAlwaysOnTop(true);
         stage.show();
     }
 
